@@ -707,13 +707,15 @@ export default function PepeWorld() {
 
       const isRunning = keys["shift"];
       const speed = isRunning ? 0.22 : 0.12;
+      const forward = new THREE.Vector3(-Math.sin(yaw), 0, -Math.cos(yaw));
+      const right = new THREE.Vector3(Math.cos(yaw), 0, -Math.sin(yaw));
 
       moveDir.set(0, 0, 0);
-      if (keys["w"] || keys["arrowup"]) moveDir.z -= 1;
-      if (keys["s"] || keys["arrowdown"]) moveDir.z += 1;
-      if (keys["a"] || keys["arrowleft"]) moveDir.x -= 1;
-      if (keys["d"] || keys["arrowright"]) moveDir.x += 1;
 
+      if (keys["w"] || keys["arrowup"]) moveDir.add(forward);
+      if (keys["s"] || keys["arrowdown"]) moveDir.sub(forward);
+      if (keys["a"] || keys["arrowleft"]) moveDir.sub(right);
+      if (keys["d"] || keys["arrowright"]) moveDir.add(right);
       if (moveDir.lengthSq() > 0) {
         moveDir.normalize();
         character.position.x += moveDir.x * speed;
