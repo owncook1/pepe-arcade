@@ -6,6 +6,7 @@ export default function Home() {
       <ul>
         <li>
           <a href="/games/jet-frog">Jet Frog</a>
+          <a href="/world">Pepe World</a>
         </li>
       </ul>
     </main>
