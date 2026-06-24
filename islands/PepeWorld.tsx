@@ -442,6 +442,14 @@ function createWorld(): WorldObject[] {
     scale: 2, // unknown yet - tune live first, see note below
     params: { modelUrl: "My Neighbor.glb" },
   });
+  add({
+    type: "model",
+    x: -6,
+    y: 0.5,
+    z: -4, // placeholder - pick wherever you want it to stand
+    scale: 2, // unknown yet - tune live first, see note below
+    params: { modelUrl: "Octopus.glb" },
+  });
 
   return world;
 }
